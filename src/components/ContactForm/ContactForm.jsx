@@ -1,39 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { nanoid } from 'nanoid';
+import React from 'react';
+
 import style from './ContactForm.module.css';
 import PropTypes from 'prop-types';
+import { usePhonebook } from 'store/PhoneBookContext';
 
-export default function ContactForm({ contacts, setContacts }) {
-  const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
-
-  const handleSubmit = event => {
-    event.preventDefault();
-
-    const contactExists = contacts
-      .map(contact => contact.name.toLowerCase())
-      .includes(name.toLowerCase());
-
-    if (contactExists) {
-      alert('This contact already exists');
-      setName('');
-      setNumber('');
-      return;
-    }
-
-    const newContact = {
-      id: nanoid(),
-      name: name,
-      number: number,
-    };
-
-    setContacts(prevContacts => [...prevContacts, newContact]);
-    setName('');
-    setNumber('');
-  };
-  useEffect(() => {
-    localStorage.setItem('contacts', JSON.stringify(contacts));
-  }, [contacts]);
+export default function ContactForm() {
+  const { handleSubmit, name, setName, number, setNumber } = usePhonebook();
   return (
     <form onSubmit={handleSubmit} className={style.form}>
       <label className={style.form__label}>
@@ -69,6 +41,6 @@ export default function ContactForm({ contacts, setContacts }) {
   );
 }
 ContactForm.propTypes = {
-  contacts: PropTypes.array.isRequired,
+  contacts: PropTypes.array,
   seContacts: PropTypes.func,
 };
