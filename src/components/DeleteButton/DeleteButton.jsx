@@ -17,5 +17,4 @@ export default function DeleteButton({ contact }) {
 }
 DeleteButton.propTypes = {
   contact: PropTypes.object.isRequired,
-  onDelete: PropTypes.func,
 };

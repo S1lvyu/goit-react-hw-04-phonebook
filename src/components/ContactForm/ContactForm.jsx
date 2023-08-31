@@ -1,7 +1,7 @@
 import React from 'react';
 
 import style from './ContactForm.module.css';
-import PropTypes from 'prop-types';
+
 import { usePhonebook } from 'store/PhoneBookContext';
 
 export default function ContactForm() {
@@ -40,7 +40,3 @@ export default function ContactForm() {
     </form>
   );
 }
-ContactForm.propTypes = {
-  contacts: PropTypes.array,
-  seContacts: PropTypes.func,
-};

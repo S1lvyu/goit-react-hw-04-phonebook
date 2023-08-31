@@ -1,7 +1,7 @@
 import React from 'react';
 import ContactItem from 'components/ContactItem/ContactItem';
 import styles from './ContactList.module.css';
-import PropTypes from 'prop-types';
+
 import { usePhonebook } from 'store/PhoneBookContext';
 
 export default function ContactList() {
@@ -22,8 +22,3 @@ export default function ContactList() {
     </ul>
   );
 }
-ContactList.propTypes = {
-  contacts: PropTypes.array,
-  filter: PropTypes.string,
-  onDelete: PropTypes.func,
-};

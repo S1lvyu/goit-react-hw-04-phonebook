@@ -13,5 +13,4 @@ export default function ContactItem({ contact }) {
 }
 ContactItem.propTypes = {
   contact: PropTypes.object,
-  onDelete: PropTypes.func,
 };

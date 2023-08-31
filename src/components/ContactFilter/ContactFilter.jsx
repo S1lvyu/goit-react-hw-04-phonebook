@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './ContactFilter.module.css';
-import PropTypes from 'prop-types';
+
 import { usePhonebook } from 'store/PhoneBookContext';
 
 export default function ContactFilter() {
@@ -19,7 +19,3 @@ export default function ContactFilter() {
     </label>
   );
 }
-ContactFilter.propTypes = {
-  filter: PropTypes.string,
-  setFilter: PropTypes.func,
-};
